@@ -16,4 +16,4 @@ spec:
       - name: flask-container 
         image: harshapillari03/simple-flask-app:latest 
         ports: 
-        - containerPort: 3000
+        - containerPort: 5000
