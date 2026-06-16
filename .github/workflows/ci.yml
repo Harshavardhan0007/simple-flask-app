@@ -40,9 +40,22 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/simple-flask-app:latest .   
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/simple-flask-app:${{ github.sha }} .   
       
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/simple-flask-app:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/simple-flask-app:${{ github.sha }}
+
+      - name: edit k8s deployment file
+        run: |
+          sed -i "s|harshapillari03/simple-flask-app:latest|${{ secrets.DOCKER_USERNAME }}/simple-flask-app:${{ github.sha }}|g" deploy/flask-deployment.yml
+
+      - name: Commit updated manifest file
+        run: |
+          git config --global user.name "Harshavardhan0007"
+          git config --global user.email "pillariharshavardhan.16@gmail.com"
+          git add deploy/flask-deployment.yml
+          git commit -m "Update image to ${{ github.sha}}" || exit 0
+          git push
+          
       
 
