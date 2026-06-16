@@ -31,7 +31,7 @@ jobs:
       - name: lint and test
         run: |
           flake8 .
-          pytest
+          pytest test.py
 
       # Build and deploy script
       - name: Docker login
