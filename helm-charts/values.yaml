@@ -1,17 +1,6 @@
-# Default values for helm-charts.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
-# This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 replicaCount: 2
-image: harshapillari03/simple-flask-app:fa18be6a466db4322bcb2a1472369c235d51533a
-
-
-# This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
-
-
-
-# This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
+image: harshapillari03/simple-flask-app:latest
 service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   type: NodePort

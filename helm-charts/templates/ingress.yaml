@@ -1,0 +1,17 @@
+appVersion: v1
+kind: Ingress
+metadata: 
+    name: flask-ingress
+spec:
+    ingressClassName: nginx
+    rules:
+    - http:
+        paths:
+        - path: /testpath
+        pathType: Prefix
+        backend: 
+           service: 
+              name: flask-app
+              port:
+                number: {{ .Values.service.port }}
+                
