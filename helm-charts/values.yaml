@@ -1,6 +1,6 @@
 
 replicaCount: 2
-image: harshapillari03/simple-flask-app:latest
+image: harshapillari03/simple-flask-app:6e000cc96425f5da71a93fd66dd90094ec7f50bc
 service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   type: NodePort
