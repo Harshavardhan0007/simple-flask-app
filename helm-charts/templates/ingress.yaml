@@ -11,7 +11,7 @@ spec:
         pathType: Prefix
         backend: 
            service: 
-              name: flask-app
+              name: flask-service
               port:
                 number: {{ .Values.service.port }}
                 
